@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Faktura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <aside id="input">
+        <h1>Faktura</h1>
+        <input data-input="number" class="number" id="aside-number" type="number" placeholder="#" title="Číslo faktury" onkeyup="invoice.make('number')">
+        <input data-input="due" class="due" type="date" placeholder="Due date" oninput="invoice.make('due')">
+        <div class="switch">
+            <input type="radio" id="payment-bank" name="payment" onclick="invoice.make('bank')" checked>
+            <label for="payment-bank">Převodem</label>
+            <input type="radio" id="payment-cash" name="payment" onclick="invoice.make('cash')">
+            <label for="payment-cash">Hotově</label>
+        </div>
+        <input id="item1-input" placeholder="Item 1" type="text"
+            onkeyup="invoiceWrite('item1-variable', 'item1-input')">
+        <input id="price1-input" placeholder="Price 1" type="text"
+            onkeyup="invoiceWrite('price1-variable', 'price1-input')">
+        <input id="item2-input" placeholder="Item 2" type="text"
+            onkeyup="invoiceWrite('item2-variable', 'item2-input')">
+        <input id="price2-input" placeholder="Price 2" type="text"
+            onkeyup="invoiceWrite('price2-variable', 'price2-input')">
+        <input id="finalprice-input" placeholder="Final price" type="text"
+            onkeyup="invoiceWrite('finalprice-variable', 'finalprice-input')">
+        <br>
+        <details style="user-select: none;">
+            <summary>More options</summary>
+            <div class="switch">
+                <input type="radio" id="currency-czk" name="currency" checked>
+                <label for="currency-czk">Kč</label>
+                <input type="radio" id="currency-usd" name="currency">
+                <label for="currency-usd">$</label>
+                <input type="radio" id="currency-user" name="currency">
+                <label for="currency-usd" contenteditable="true">?</label>
+            </div>
+            <input id="date1-input" placeholder="Date of issue" type="date"
+                oninput="invoiceWrite('date1-variable', 'date1-input')">
+            <input id="date2-input" placeholder="Tax date" type="date"
+                oninput="invoiceWrite('date2-variable', 'date2-input')">
+        </details>
+        <button onclick="print()">Vytisknout</button>
+    </aside>
+    <main>
+        <div id="invoice">
+        </div>
+    </main>
+</body>
+
+<script src="script.js"></script>
+
+</html>

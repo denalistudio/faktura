@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="column70" style="display: inline-flex">
+        <p style="display: none;" data-invoice="heading"></p>
+        <svg width="30" height="30" viewBox="0 0 74 60" fill="none" style="margin-right: 10px; margin-top: 3.5px" xmlns="http://www.w3.org/2000/svg">
+            <path d="M37 0L74 60H0L37 0Z" fill="#4F54FF" />
+        </svg>
+        <h1 data-invoice="number">Faktura ČÍSLO FAKTURY</h1>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row">
+    <div class="column">
+        <p>Dodavatel</p>
+        <h2 data-invoice="supplier-name"></h2>
+        <br>
+        <h3>Adresa</h3>
+        <p data-invoice="supplier-address1"></p>
+        <p data-invoice="supplier-address2"></p>
+        <br>
+        <h3>IČO</h3>
+        <p data-invoice="supplier-ico"></p>
+    </div>
+    <div class="column">
+        <p>Odběratel</p>
+        <h2 data-invoice="buyer-name">ODBĚRATEL</h2>
+        <br>
+        <h3>Adresa</h3>
+        <p data-invoice="buyer-address1">ADRESA 1</p>
+        <p data-invoice="buyer-address2">ADRESA 2</p>
+        <br>
+        <h3>IČO</h3>
+        <p data-invoice="buyer-ico">12345678</p>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row">
+    <div class="column">
+        <p class="bank">Bankovní účet</p>
+        <h3 data-invoice="bank" class="bank">1234567890/0000</h3>
+        <br>
+        <p>Způsob platby</p>
+        <h3 data-invoice="type">bankovní převod</h3>
+        <br>
+        <p>Datum vystavení</p>
+        <h3 data-invoice="issue">DATUM VYSTAVENÍ</h3>
+    </div>
+    <div class="column">
+        <div>
+            <p class="bank">Variabilní symbol</p>
+            <h3 data-invoice="variable" class="bank">VARIABILNÍ SYMBOL</h3>
+        </div>
+        <br>
+        <p>Datum splatnosti</p>
+        <h3 data-invoice="due">DATUM SPLATNOSTI</h3>
+    </div>
+</div>
+<div class="line"></div>
+<div class="row">
+    <div class="column70">
+        <p>Položka</p>
+        <h3 contenteditable="true">Položky</h3>
+    </div>
+    <div class="column30">
+        <p>Cena</p>
+        <h3 contenteditable="true">Ceny</h3>
+    </div>
+</div>
+<div class="line"></div>
+<p>Částka k úhradě</p>
+<h2 data-invoice="price" contenteditable="true">CENA K ÚHRADĚ</h2>
