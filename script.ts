@@ -80,6 +80,8 @@ function make(what: "number" | "due" | "type" | "bank" | "cash") {
   }
 }
 
+// TODO: Add spellcheck="false" to all contenteditable elements
+
 function init() {
   var today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
   dom.output.issue.innerHTML = today;
