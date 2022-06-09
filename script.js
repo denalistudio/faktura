@@ -194,6 +194,9 @@ function registr() {
     var part2 = "&Action=Search";
     window.open(part1 + ico + part2, "_blank");
 }
+
+// TODO: Add the new label system here.
+
 template.supplier.name.addEventListener("keyup", function () {
     localStorage.setItem('name', template.supplier.name.innerHTML);
 });
