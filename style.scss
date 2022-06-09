@@ -5,7 +5,11 @@ $gray: #fafafa;
 $border-radius: 5px;
 $outline: 0 0 0 1px #808080;
 
-$green: #77b377;
+$input: #f8f8f8;
+$green: #6ab16a;
+$green-hover: #428842;
+$grey: #808080;
+$grey-hover: #646464;
 
 * {
   margin: 0;
@@ -263,4 +267,33 @@ button {
   left: 20px;
   bottom: 20px;
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.tag {
+  background-color: $green;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1px 5px;
+  font-size: 12.5px;
+  border-radius: 25px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: $grey;
+  margin-top: 5px;
+  a {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: $grey-hover;
+    }
+  }
+}
+
+input[type="number"] {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
 }

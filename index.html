@@ -22,9 +22,10 @@
         <input type="checkbox" id="dph">
         <label for="dph">Plátce DPH</label>
         <br>
-        <p>Vyhledat v rejstříku</p>
+        <p>Vyhledat v rejstříku <span class="tag">Beta</span></p>
         <input type="number" id="rejstrikoveico" placeholder="IČO">
         <button onclick="getData('11990074')">Rejstřík</button>
+        <p class="subtitle">Tato funkce je momentálně ve vývoji a je možné, že se některé adresy nenačtou správně. <a onclick="registr()">Celý výpis najdete zde.</a></p>
         <br>
         <input id="item1-input" placeholder="Item 1" type="text"
             onkeyup="invoiceWrite('item1-variable', 'item1-input')">

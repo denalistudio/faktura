@@ -169,12 +169,28 @@ function getData() {
         console.log(doc.getElementsByTagName("D:ICO")[0].innerHTML);
         */
         template.buyer.name.innerHTML = doc.getElementsByTagName("D:OF")[0].innerHTML;
-        template.buyer.address1.innerHTML = doc.getElementsByTagName("D:UC")[0].innerHTML;
-        template.buyer.address2.innerHTML = doc.getElementsByTagName("D:PB")[0].innerHTML;
         template.buyer.ico.innerHTML = doc.getElementsByTagName("D:ICO")[0].innerHTML;
+        /*
+        if (doc.getElementsByTagName("D:CO") === undefined) {
+          template.buyer.address1.innerHTML = doc.getElementsByTagName("D:UC")[0].innerHTML;
+          template.buyer.address2.innerHTML = doc.getElementsByTagName("D:PB")[0].innerHTML;
+        }
+        else {
+          template.buyer.address1.innerHTML = doc.getElementsByTagName("D:UC")[0].innerHTML + "/" + doc.getElementsByTagName("D:CO")[0].innerHTML;
+          template.buyer.address2.innerHTML = doc.getElementsByTagName("D:PB")[0].innerHTML;
+        }
+        */
+        template.buyer.address1.innerHTML = doc.getElementsByTagName("D:UC")[0].innerHTML + "/" + doc.getElementsByTagName("D:CO")[0].innerHTML;
+        template.buyer.address2.innerHTML = doc.getElementsByTagName("D:PB")[0].innerHTML;
     });
 }
 ;
+function registr() {
+    var part1 = "https://www.rzp.cz/cgi-bin/aps_cacheWEB.sh?VSS_SERV=ZVWSBJFND&PRESVYBER=0&VYPIS=2&ICO=";
+    var ico = document.getElementById("rejstrikoveico").value;
+    var part2 = "&Action=Search";
+    window.open(part1 + ico + part2, "_blank");
+}
 template.supplier.name.addEventListener("keyup", function () {
     localStorage.setItem('name', template.supplier.name.innerHTML);
 });
