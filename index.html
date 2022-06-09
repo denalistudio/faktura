@@ -24,20 +24,8 @@
         <br>
         <p>Vyhledat v rejstříku <span class="tag">Beta</span></p>
         <input type="number" id="rejstrikoveico" placeholder="IČO">
-        <button onclick="getData('11990074')">Rejstřík</button>
-        <p class="subtitle">Tato funkce je momentálně ve vývoji a je možné, že se některé adresy nenačtou správně. <a onclick="registr()">Celý výpis najdete zde.</a></p>
-        <br>
-        <input id="item1-input" placeholder="Item 1" type="text"
-            onkeyup="invoiceWrite('item1-variable', 'item1-input')">
-        <input id="price1-input" placeholder="Price 1" type="text"
-            onkeyup="invoiceWrite('price1-variable', 'price1-input')">
-        <input id="item2-input" placeholder="Item 2" type="text"
-            onkeyup="invoiceWrite('item2-variable', 'item2-input')">
-        <input id="price2-input" placeholder="Price 2" type="text"
-            onkeyup="invoiceWrite('price2-variable', 'price2-input')">
-        <input id="finalprice-input" placeholder="Final price" type="text"
-            onkeyup="invoiceWrite('finalprice-variable', 'finalprice-input')">
-        <br>
+        <button onclick="getData('11990074')">Prohledat rejstřík</button>
+        <p class="subtitle">Tato funkce je momentálně ve vývoji a je možné, že se některé adresy nenačtou správně. <a onclick="registr()">Celý výpis najdete zde</a></p>
         <details style="user-select: none;">
             <summary>More options</summary>
             <div class="switch">
@@ -49,7 +37,7 @@
                 <label for="currency-usd" contenteditable="true">?</label>
             </div>
             <input id="date1-input" placeholder="Date of issue" type="date"
-                oninput="invoiceWrite('date1-variable', 'date1-input')">
+                oninput="invoice.make('issue')" data-input="issue">
             <input id="date2-input" placeholder="Tax date" type="date"
                 oninput="invoiceWrite('date2-variable', 'date2-input')">
                 <label for="date2-input">Datum zdanitelného plnění</label>
@@ -65,7 +53,7 @@
                         style="margin-right: 10px; margin-top: 3.5px" xmlns="http://www.w3.org/2000/svg">
                         <path d="M37 0L74 60H0L37 0Z" fill="#4F54FF" />
                     </svg>
-                    <h1 data-invoice="number">Faktura ČÍSLO FAKTURY</h1>
+                    <h1>Faktura <span data-invoice="number"></span></h1>
                 </div>
             </div>
             <div class="line"></div>
@@ -100,7 +88,7 @@
                     <h3 data-invoice="bank" class="bank">1234567890/0000</h3>
                     <br>
                     <p>Způsob platby</p>
-                    <h3 data-invoice="type">bankovní převod</h3>
+                    <h3 data-invoice="type">bankovním převodem</h3>
                     <br>
                     <p>Datum vystavení</p>
                     <h3 data-invoice="issue">DATUM VYSTAVENÍ</h3>
@@ -135,7 +123,7 @@
     <a href="mailto:klapka@studiodenali.cz" title="Potřebujete poradit?"><div id="help">?</div></a>
 </body>
 
-<!--<script src="./library/qr/qrcode.min.js"></script>-->
+<script src="./library/qr/qrcode.min.js"></script>
 <script src="./script.js"></script>
 
 </html>
