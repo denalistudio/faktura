@@ -163,7 +163,7 @@ function what(what, arg1) {
 }
 function getData() {
     var ico = document.getElementById("rejstrikoveico").value;
-    var proxy = "https://mighty-eyrie-00680.herokuapp.com/";
+    var proxy = "https://faktura-proxy.herokuapp.com/";
     var api = "http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico=";
     var req = proxy + api + ico;
     return fetch(req)
