@@ -225,3 +225,13 @@ template.supplier.address2.addEventListener("keyup", function () {
 template.supplier.ico.addEventListener("keyup", function () {
   localStorage.setItem('ico', template.supplier.ico.innerHTML);
 });
+
+/*
+
+new QRCode(document.getElementById("qr"), "SPD*1.0*ACC:CZ2806000000000168540115*AM:450.00*CC:CZK*MSG:PLATBA ZA ZBOZI*X-VS:1234567890");
+
+function makeqr() {
+
+}
+
+*/
