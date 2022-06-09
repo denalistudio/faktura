@@ -19,6 +19,13 @@
             <input type="radio" id="payment-cash" name="payment" onclick="invoice.make('cash')">
             <label for="payment-cash">Hotově</label>
         </div>
+        <input type="checkbox" id="dph">
+        <label for="dph">Plátce DPH</label>
+        <br>
+        <p>Vyhledat v rejstříku</p>
+        <input type="number" id="rejstrikoveico" placeholder="IČO">
+        <button onclick="getData('11990074')">Rejstřík</button>
+        <br>
         <input id="item1-input" placeholder="Item 1" type="text"
             onkeyup="invoiceWrite('item1-variable', 'item1-input')">
         <input id="price1-input" placeholder="Price 1" type="text"
@@ -44,6 +51,7 @@
                 oninput="invoiceWrite('date1-variable', 'date1-input')">
             <input id="date2-input" placeholder="Tax date" type="date"
                 oninput="invoiceWrite('date2-variable', 'date2-input')">
+                <label for="date2-input">Datum zdanitelného plnění</label>
         </details>
         <button onclick="print()">Vytisknout</button>
     </aside>
@@ -63,7 +71,7 @@
             <div class="row">
                 <div class="column">
                     <p>Dodavatel</p>
-                    <h2 data-invoice="supplier-name"></h2>
+                    <h2 contenteditable="true" data-invoice="supplier-name"></h2>
                     <br>
                     <h3>Adresa</h3>
                     <p data-invoice="supplier-address1"></p>
@@ -122,6 +130,7 @@
             <h2 data-invoice="price" contenteditable="true">CENA K ÚHRADĚ</h2>
         </div>
     </main>
+    <a href="mailto:klapka@studiodenali.cz" title="Potřebujete poradit?"><div id="help">?</div></a>
 </body>
 
 <script src="./script.js"></script>

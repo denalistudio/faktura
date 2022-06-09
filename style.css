@@ -7,7 +7,7 @@
 }
 
 *:focus {
-  outline: #77b377 solid 2px;
+  outline: none;
   border-radius: 5px;
 }
 
@@ -144,17 +144,9 @@ button:hover {
   border-radius: 0 4px 4px 0;
 }
 
-textarea:focus,
-input:focus {
-  outline: #77b377 solid 2px;
-}
-
 @media print {
-  body * {
-    visibility: none;
-  }
-  aside {
-    display: none;
+  html * {
+    visibility: hidden;
   }
   #invoice,
   #invoice * {
@@ -250,4 +242,27 @@ input:focus {
   -webkit-appearance: none;
   margin: 0;
   -moz-appearance: textfield;
+}
+
+#help {
+  height: 50px;
+  width: 50px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: center;
+  font-weight: 700;
+  background-color: #77b377;
+  position: fixed;
+  border-radius: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 7px;
+  left: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
