@@ -36,6 +36,7 @@ var invoice = {
         issue: "",
         due: "",
         account: "1234567890/0000",
+        iban: "",
         supplier: {
             name: "DODAVATEL",
             address1: "ADRESA 1",
@@ -80,7 +81,8 @@ const local = {
     address1: localStorage.getItem("address1"),
     address2: localStorage.getItem("address2"),
     ico: localStorage.getItem("ico"),
-    account: localStorage.getItem("account")
+    account: localStorage.getItem("account"),
+    iban: localStorage.getItem("iban")
 };
 function init() {
     invoice.store.issue = today;
@@ -105,6 +107,10 @@ function init() {
     else {
         invoice.store.account = local.account;
     }
+    if (local.iban === null) { }
+    else {
+        invoice.store.iban = local.iban;
+    }
     // Set elements to contenteditable="true" and spellcheck="false"
     template.account.setAttribute("contenteditable", "true");
     template.account.setAttribute("spellcheck", "false");
@@ -128,6 +134,7 @@ function init() {
 }
 document.addEventListener("DOMContentLoaded", init);
 function refreshLabels() {
+    invoice.settings.iban.value = invoice.store.iban;
     template.number.innerHTML = invoice.store.number;
     template.variable.innerHTML = invoice.store.number;
     template.due.innerHTML = invoice.store.due;
@@ -143,7 +150,7 @@ function refreshLabels() {
     template.buyer.ico.innerHTML = invoice.store.buyer.ico;
     //FIXME: This qr system is just disgusting
     document.getElementById("qr").innerHTML = "";
-    var qr = "SPD*1.0*ACC:" + "account" + "*AM:" + "amount" + "*CC:" + "currency" + "*MSG:" + "message" + "*X-VS:" + invoice.store.number;
+    var qr = "SPD*1.0*ACC:" + invoice.store.iban + "*AM:" + "10000" + "*CC:" + "CZK" + "*X-VS:" + invoice.store.number;
     new QRCode(document.getElementById("qr"), qr);
 }
 /*
@@ -202,6 +209,12 @@ function registr() {
     var part2 = "&Action=Search";
     window.open(part1 + ico + part2, "_blank");
 }
+invoice.settings.iban.addEventListener("keyup", function () {
+    let iban = invoice.settings.iban.value;
+    localStorage.setItem('iban', iban);
+    invoice.store.iban = iban;
+    refreshLabels();
+});
 template.supplier.name.addEventListener("keyup", function () {
     let name = template.supplier.name.innerHTML;
     localStorage.setItem('name', name);
