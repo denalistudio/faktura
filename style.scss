@@ -297,3 +297,9 @@ input[type="number"] {
   margin: 0;
   -moz-appearance: textfield;
 }
+
+#qr {
+  img {
+    width: 150px;
+  }
+}
