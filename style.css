@@ -222,7 +222,7 @@ button:hover {
   width: 30%;
 }
 
-[data-input="number"] {
+[data-invoice="number"] {
   width: 50px;
   height: 35px;
   padding: 10px;
@@ -233,7 +233,7 @@ button:hover {
   -moz-appearance: textfield;
 }
 
-[data-input="due"] {
+[data-invoice="due"] {
   width: 125px;
   height: 35px;
   padding: 10px;
