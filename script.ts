@@ -10,24 +10,24 @@ const dom = {
 }
 
 const template = {
-  number: <HTMLElement>document.querySelectorAll("[data-invoice='number']")[0],
-  heading: <HTMLElement>document.querySelectorAll("[data-invoice='heading']")[0],
-  account: <HTMLElement>document.querySelectorAll("[data-invoice='account']")[0],
-  variable: <HTMLElement>document.querySelectorAll("[data-invoice='variable']")[0],
-  type: <HTMLElement>document.querySelectorAll("[data-invoice='type']")[0],
-  due: <HTMLElement>document.querySelectorAll("[data-invoice='due']")[0],
-  issue: <HTMLElement>document.querySelectorAll("[data-invoice='issue']")[0],
+  number: <HTMLElement>document.querySelectorAll("[data-template='number']")[0],
+  heading: <HTMLElement>document.querySelectorAll("[data-template='heading']")[0],
+  account: <HTMLElement>document.querySelectorAll("[data-template='account']")[0],
+  variable: <HTMLElement>document.querySelectorAll("[data-template='variable']")[0],
+  type: <HTMLElement>document.querySelectorAll("[data-template='type']")[0],
+  due: <HTMLElement>document.querySelectorAll("[data-template='due']")[0],
+  issue: <HTMLElement>document.querySelectorAll("[data-template='issue']")[0],
   supplier: {
-    name: <HTMLElement>document.querySelectorAll("[data-invoice='supplier-name']")[0],
-    address1: <HTMLElement>document.querySelectorAll("[data-invoice='supplier-address1']")[0],
-    address2: <HTMLElement>document.querySelectorAll("[data-invoice='supplier-address2']")[0],
-    ico: <HTMLElement>document.querySelectorAll("[data-invoice='supplier-ico']")[0]
+    name: <HTMLElement>document.querySelectorAll("[data-template='supplier-name']")[0],
+    address1: <HTMLElement>document.querySelectorAll("[data-template='supplier-address1']")[0],
+    address2: <HTMLElement>document.querySelectorAll("[data-template='supplier-address2']")[0],
+    ico: <HTMLElement>document.querySelectorAll("[data-template='supplier-ico']")[0]
   },
   buyer: {
-    name: <HTMLElement>document.querySelectorAll("[data-invoice='buyer-name']")[0],
-    address1: <HTMLElement>document.querySelectorAll("[data-invoice='buyer-address1']")[0],
-    address2: <HTMLElement>document.querySelectorAll("[data-invoice='buyer-address2']")[0],
-    ico: <HTMLElement>document.querySelectorAll("[data-invoice='buyer-ico']")[0]
+    name: <HTMLElement>document.querySelectorAll("[data-template='buyer-name']")[0],
+    address1: <HTMLElement>document.querySelectorAll("[data-template='buyer-address1']")[0],
+    address2: <HTMLElement>document.querySelectorAll("[data-template='buyer-address2']")[0],
+    ico: <HTMLElement>document.querySelectorAll("[data-template='buyer-ico']")[0]
   }
 }
 
@@ -152,6 +152,7 @@ function refreshLabels() {
   template.variable.innerHTML = storage.number;
   template.due.innerHTML = storage.due;
   template.issue.innerHTML = storage.issue;
+  template.account.innerHTML = storage.account;
   template.supplier.name.innerHTML = storage.supplier.name;
   template.supplier.address1.innerHTML = storage.supplier.address1;
   template.supplier.address2.innerHTML = storage.supplier.address2;

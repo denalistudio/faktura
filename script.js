@@ -9,24 +9,24 @@ const dom = {
     }
 };
 const template = {
-    number: document.querySelectorAll("[data-invoice='number']")[0],
-    heading: document.querySelectorAll("[data-invoice='heading']")[0],
-    account: document.querySelectorAll("[data-invoice='account']")[0],
-    variable: document.querySelectorAll("[data-invoice='variable']")[0],
-    type: document.querySelectorAll("[data-invoice='type']")[0],
-    due: document.querySelectorAll("[data-invoice='due']")[0],
-    issue: document.querySelectorAll("[data-invoice='issue']")[0],
+    number: document.querySelectorAll("[data-template='number']")[0],
+    heading: document.querySelectorAll("[data-template='heading']")[0],
+    account: document.querySelectorAll("[data-template='account']")[0],
+    variable: document.querySelectorAll("[data-template='variable']")[0],
+    type: document.querySelectorAll("[data-template='type']")[0],
+    due: document.querySelectorAll("[data-template='due']")[0],
+    issue: document.querySelectorAll("[data-template='issue']")[0],
     supplier: {
-        name: document.querySelectorAll("[data-invoice='supplier-name']")[0],
-        address1: document.querySelectorAll("[data-invoice='supplier-address1']")[0],
-        address2: document.querySelectorAll("[data-invoice='supplier-address2']")[0],
-        ico: document.querySelectorAll("[data-invoice='supplier-ico']")[0]
+        name: document.querySelectorAll("[data-template='supplier-name']")[0],
+        address1: document.querySelectorAll("[data-template='supplier-address1']")[0],
+        address2: document.querySelectorAll("[data-template='supplier-address2']")[0],
+        ico: document.querySelectorAll("[data-template='supplier-ico']")[0]
     },
     buyer: {
-        name: document.querySelectorAll("[data-invoice='buyer-name']")[0],
-        address1: document.querySelectorAll("[data-invoice='buyer-address1']")[0],
-        address2: document.querySelectorAll("[data-invoice='buyer-address2']")[0],
-        ico: document.querySelectorAll("[data-invoice='buyer-ico']")[0]
+        name: document.querySelectorAll("[data-template='buyer-name']")[0],
+        address1: document.querySelectorAll("[data-template='buyer-address1']")[0],
+        address2: document.querySelectorAll("[data-template='buyer-address2']")[0],
+        ico: document.querySelectorAll("[data-template='buyer-ico']")[0]
     }
 };
 // TODO: Make better date formats
@@ -133,6 +133,7 @@ function refreshLabels() {
     template.variable.innerHTML = storage.number;
     template.due.innerHTML = storage.due;
     template.issue.innerHTML = storage.issue;
+    template.account.innerHTML = storage.account;
     template.supplier.name.innerHTML = storage.supplier.name;
     template.supplier.address1.innerHTML = storage.supplier.address1;
     template.supplier.address2.innerHTML = storage.supplier.address2;

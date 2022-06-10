@@ -48,59 +48,59 @@
         <div id="invoice">
             <div class="row">
                 <div class="column70" style="display: inline-flex">
-                    <p style="display: none;" data-invoice="heading"></p>
+                    <p style="display: none;" data-template="heading"></p>
                     <svg width="30" height="30" viewBox="0 0 74 60" fill="none"
                         style="margin-right: 10px; margin-top: 3.5px" xmlns="http://www.w3.org/2000/svg">
                         <path d="M37 0L74 60H0L37 0Z" fill="#4F54FF" />
                     </svg>
-                    <h1>Faktura <span data-invoice="number"></span></h1>
+                    <h1>Faktura <span data-template="number"></span></h1>
                 </div>
             </div>
             <div class="line"></div>
             <div class="row">
                 <div class="column">
                     <p>Dodavatel</p>
-                    <h2 contenteditable="true" data-invoice="supplier-name"></h2>
+                    <h2 contenteditable="true" data-template="supplier-name"></h2>
                     <br>
                     <h3>Adresa</h3>
-                    <p data-invoice="supplier-address1"></p>
-                    <p data-invoice="supplier-address2"></p>
+                    <p data-template="supplier-address1"></p>
+                    <p data-template="supplier-address2"></p>
                     <br>
                     <h3>IČO</h3>
-                    <p data-invoice="supplier-ico"></p>
+                    <p data-template="supplier-ico"></p>
                 </div>
                 <div class="column">
                     <p>Odběratel</p>
-                    <h2 data-invoice="buyer-name">ODBĚRATEL</h2>
+                    <h2 data-template="buyer-name">ODBĚRATEL</h2>
                     <br>
                     <h3>Adresa</h3>
-                    <p data-invoice="buyer-address1">ADRESA 1</p>
-                    <p data-invoice="buyer-address2">ADRESA 2</p>
+                    <p data-template="buyer-address1">ADRESA 1</p>
+                    <p data-template="buyer-address2">ADRESA 2</p>
                     <br>
                     <h3>IČO</h3>
-                    <p data-invoice="buyer-ico">12345678</p>
+                    <p data-template="buyer-ico">12345678</p>
                 </div>
             </div>
             <div class="line"></div>
             <div class="row">
                 <div class="column">
                     <p class="bank">Bankovní účet</p>
-                    <h3 data-invoice="account" class="bank">1234567890/0000</h3>
+                    <h3 data-template="account" class="bank">1234567890/0000</h3>
                     <br>
                     <p>Způsob platby</p>
-                    <h3 data-invoice="type">bankovním převodem</h3>
+                    <h3 data-template="type">bankovním převodem</h3>
                     <br>
                     <p>Datum vystavení</p>
-                    <h3 data-invoice="issue">DATUM VYSTAVENÍ</h3>
+                    <h3 data-template="issue">DATUM VYSTAVENÍ</h3>
                 </div>
                 <div class="column">
                     <div>
                         <p class="bank">Variabilní symbol</p>
-                        <h3 data-invoice="variable" class="bank">VARIABILNÍ SYMBOL</h3>
+                        <h3 data-template="variable" class="bank">VARIABILNÍ SYMBOL</h3>
                     </div>
                     <br>
                     <p>Datum splatnosti</p>
-                    <h3 data-invoice="due">DATUM SPLATNOSTI</h3>
+                    <h3 data-template="due">DATUM SPLATNOSTI</h3>
                 </div>
             </div>
             <div class="line"></div>
@@ -116,7 +116,7 @@
             </div>
             <div class="line"></div>
             <p>Částka k úhradě</p>
-            <h2 data-invoice="price" contenteditable="true">CENA K ÚHRADĚ</h2>
+            <h2 data-template="price" contenteditable="true">CENA K ÚHRADĚ</h2>
             <div id="qr"></div>
         </div>
     </main>
