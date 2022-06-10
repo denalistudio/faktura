@@ -34,17 +34,35 @@ const template = {
 // TODO: Make better date formats
 // TODO: Convert this shit to event listeners
 
-const invoice = {
+var invoice = {
+  store: {
+    number: "12345678",
+    issue: "",
+    due: "",
+    account: "1234567890/0000",
+    supplier: {
+      name: "DODAVATEL",
+      address1: "ADRESA 1",
+      address2: "ADRESA 2",
+      ico: "IČO"
+    },
+    buyer: {
+      name: "ODBĚRATEL",
+      address1: "ADRESA 1",
+      address2: "ADRESA 2",
+      ico: "IČO"
+    }
+  },
   make: (what: "number" | "due" | "issue" | "type" | "bank" | "cash") => {
     switch (what) {
       case "number":
-        storage.number = ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getFullYear()).slice(-2) + ("0000" + dom.input.number.value).slice(-4);
+        invoice.store.number = ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getFullYear()).slice(-2) + ("0000" + dom.input.number.value).slice(-4);
         break;
       case "due":
-        storage.due = dom.input.due.value;
+        invoice.store.due = dom.input.due.value;
         break;
       case "issue":
-        storage.issue = dom.input.issue.value;
+        invoice.store.issue = dom.input.issue.value;
       case "bank":
         document.querySelectorAll(".bank").forEach(el => {
           el.style.display = "block";
@@ -62,25 +80,6 @@ const invoice = {
   }
 }
 
-var storage = {
-  number: "12345678",
-  issue: "",
-  due: "",
-  account: "1234567890/0000",
-  supplier: {
-    name: "DODAVATEL",
-    address1: "ADRESA 1",
-    address2: "ADRESA 2",
-    ico: "IČO"
-  },
-  buyer: {
-    name: "ODBĚRATEL",
-    address1: "ADRESA 1",
-    address2: "ADRESA 2",
-    ico: "IČO"
-  }
-}
-
 const local = {
     name: localStorage.getItem("name"),
     address1: localStorage.getItem("address1"),
@@ -90,33 +89,33 @@ const local = {
 }
 
 function init() {
-  storage.issue = today;
+  invoice.store.issue = today;
 
   // Check localstorage for data
 
   if (local.name === null) {}
   else {
-    storage.supplier.name = local.name;
+    invoice.store.supplier.name = local.name;
   }
 
   if (local.address1 === null) {}
   else {
-    storage.supplier.address1 = local.address1;
+    invoice.store.supplier.address1 = local.address1;
   }
 
   if (local.address2 === null) {}
   else {
-    storage.supplier.address2 = local.address2;
+    invoice.store.supplier.address2 = local.address2;
   }
 
   if (local.ico === null) {}
   else {
-    storage.supplier.ico = local.ico;
+    invoice.store.supplier.ico = local.ico;
   }
 
   if (local.account === null) {}
   else {
-    storage.account = local.account;
+    invoice.store.account = local.account;
   }
 
   // Set elements to contenteditable="true" and spellcheck="false"
@@ -148,22 +147,22 @@ function init() {
 document.addEventListener("DOMContentLoaded", init);
 
 function refreshLabels() {
-  template.number.innerHTML = storage.number;
-  template.variable.innerHTML = storage.number;
-  template.due.innerHTML = storage.due;
-  template.issue.innerHTML = storage.issue;
-  template.account.innerHTML = storage.account;
-  template.supplier.name.innerHTML = storage.supplier.name;
-  template.supplier.address1.innerHTML = storage.supplier.address1;
-  template.supplier.address2.innerHTML = storage.supplier.address2;
-  template.supplier.ico.innerHTML = storage.supplier.ico;
-  template.buyer.name.innerHTML = storage.buyer.name;
-  template.buyer.address1.innerHTML = storage.buyer.address1;
-  template.buyer.address2.innerHTML = storage.buyer.address2;
-  template.buyer.ico.innerHTML = storage.buyer.ico;
+  template.number.innerHTML = invoice.store.number;
+  template.variable.innerHTML = invoice.store.number;
+  template.due.innerHTML = invoice.store.due;
+  template.issue.innerHTML = invoice.store.issue;
+  template.account.innerHTML = invoice.store.account;
+  template.supplier.name.innerHTML = invoice.store.supplier.name;
+  template.supplier.address1.innerHTML = invoice.store.supplier.address1;
+  template.supplier.address2.innerHTML = invoice.store.supplier.address2;
+  template.supplier.ico.innerHTML = invoice.store.supplier.ico;
+  template.buyer.name.innerHTML = invoice.store.buyer.name;
+  template.buyer.address1.innerHTML = invoice.store.buyer.address1;
+  template.buyer.address2.innerHTML = invoice.store.buyer.address2;
+  template.buyer.ico.innerHTML = invoice.store.buyer.ico;
   //FIXME: This qr system is just disgusting
   document.getElementById("qr").innerHTML = "";
-  var qr = "SPD*1.0*ACC:" + "account" + "*AM:" + "amount" + "*CC:" + "currency" + "*MSG:" + "message" + "*X-VS:" + storage.number;
+  var qr = "SPD*1.0*ACC:" + "account" + "*AM:" + "amount" + "*CC:" + "currency" + "*MSG:" + "message" + "*X-VS:" + invoice.store.number;
   new QRCode(document.getElementById("qr"), qr);
 }
 
@@ -195,15 +194,15 @@ function what(what: any, arg1: string): (this: HTMLInputElement, ev: KeyboardEve
 
 function getData() {
   var ico = <HTMLInputElement>document.getElementById("rejstrikoveico").value;
-  var proxy = "https://cors-anywhere.herokuapp.com/";
+  var proxy = "https://faktura-proxy.herokuapp.com/";
   var api = "http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico=";
   var req = proxy + api + ico;
   return fetch(req)
     .then(response => response.text())
     .then(function (data) {
       let doc = new DOMParser().parseFromString(data, "text/xml");
-      storage.buyer.name = doc.getElementsByTagName("D:OF")[0].innerHTML;
-      storage.buyer.ico = doc.getElementsByTagName("D:ICO")[0].innerHTML;
+      invoice.store.buyer.name = doc.getElementsByTagName("D:OF")[0].innerHTML;
+      invoice.store.buyer.ico = doc.getElementsByTagName("D:ICO")[0].innerHTML;
       /*
       if (doc.getElementsByTagName("D:CO") === undefined) {
         template.buyer.address1.innerHTML = doc.getElementsByTagName("D:UC")[0].innerHTML;
@@ -214,8 +213,8 @@ function getData() {
         template.buyer.address2.innerHTML = doc.getElementsByTagName("D:PB")[0].innerHTML;
       }
       */
-      storage.buyer.address1 = doc.getElementsByTagName("D:UC")[0].innerHTML + "/" + doc.getElementsByTagName("D:CO")[0].innerHTML;
-      storage.buyer.address2 = doc.getElementsByTagName("D:PB")[0].innerHTML;
+      invoice.store.buyer.address1 = doc.getElementsByTagName("D:UC")[0].innerHTML + "/" + doc.getElementsByTagName("D:CO")[0].innerHTML;
+      invoice.store.buyer.address2 = doc.getElementsByTagName("D:PB")[0].innerHTML;
       refreshLabels();
     });
 };
@@ -230,31 +229,31 @@ function registr() {
 template.supplier.name.addEventListener("keyup", function () {
   let name = template.supplier.name.innerHTML;
   localStorage.setItem('name', name);
-  storage.supplier.name = name;
+  invoice.store.supplier.name = name;
 });
 
 template.supplier.address1.addEventListener("keyup", function () {
   let address1 = template.supplier.address1.innerHTML;
   localStorage.setItem('address1', address1);
-  storage.supplier.address1 = address1;
+  invoice.store.supplier.address1 = address1;
 });
 
 template.supplier.address2.addEventListener("keyup", function () {
   let address2 = template.supplier.address2.innerHTML
   localStorage.setItem('address2', address2);
-  storage.supplier.address2 = address2;
+  invoice.store.supplier.address2 = address2;
 });
 
 template.supplier.ico.addEventListener("keyup", function () {
   let ico = template.supplier.ico.innerHTML
   localStorage.setItem('ico', ico);
-  storage.supplier.ico = ico;
+  invoice.store.supplier.ico = ico;
 });
 
 template.account.addEventListener("keyup", function () {
   let account = template.account.innerHTML
   localStorage.setItem('account', account);
-  storage.account = account;
+  invoice.store.account = account;
 });
 
 /*
