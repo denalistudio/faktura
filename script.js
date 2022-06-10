@@ -11,7 +11,7 @@ const dom = {
 const template = {
     number: document.querySelectorAll("[data-invoice='number']")[0],
     heading: document.querySelectorAll("[data-invoice='heading']")[0],
-    bank: document.querySelectorAll("[data-invoice='bank']")[0],
+    account: document.querySelectorAll("[data-invoice='account']")[0],
     variable: document.querySelectorAll("[data-invoice='variable']")[0],
     type: document.querySelectorAll("[data-invoice='type']")[0],
     due: document.querySelectorAll("[data-invoice='due']")[0],
@@ -62,6 +62,7 @@ var storage = {
     number: "12345678",
     issue: "",
     due: "",
+    account: "1234567890/0000",
     supplier: {
         name: "DODAVATEL",
         address1: "ADRESA 1",
@@ -79,7 +80,8 @@ const local = {
     name: localStorage.getItem("name"),
     address1: localStorage.getItem("address1"),
     address2: localStorage.getItem("address2"),
-    ico: localStorage.getItem("ico")
+    ico: localStorage.getItem("ico"),
+    account: localStorage.getItem("account")
 };
 function init() {
     storage.issue = today;
@@ -100,7 +102,13 @@ function init() {
     else {
         storage.supplier.ico = local.ico;
     }
+    if (local.account === null) { }
+    else {
+        storage.account = local.account;
+    }
     // Set elements to contenteditable="true" and spellcheck="false"
+    template.account.setAttribute("contenteditable", "true");
+    template.account.setAttribute("spellcheck", "false");
     template.supplier.name.setAttribute("contenteditable", "true");
     template.supplier.name.setAttribute("spellcheck", "false");
     template.supplier.address1.setAttribute("contenteditable", "true");
@@ -163,7 +171,7 @@ function what(what, arg1) {
 }
 function getData() {
     var ico = document.getElementById("rejstrikoveico").value;
-    var proxy = "https://faktura-proxy.herokuapp.com/";
+    var proxy = "https://cors-anywhere.herokuapp.com/";
     var api = "http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico=";
     var req = proxy + api + ico;
     return fetch(req)
@@ -194,20 +202,30 @@ function registr() {
     var part2 = "&Action=Search";
     window.open(part1 + ico + part2, "_blank");
 }
-
-// TODO: Add the new label system here.
-
 template.supplier.name.addEventListener("keyup", function () {
-    localStorage.setItem('name', template.supplier.name.innerHTML);
+    let name = template.supplier.name.innerHTML;
+    localStorage.setItem('name', name);
+    storage.supplier.name = name;
 });
 template.supplier.address1.addEventListener("keyup", function () {
-    localStorage.setItem('address1', template.supplier.address1.innerHTML);
+    let address1 = template.supplier.address1.innerHTML;
+    localStorage.setItem('address1', address1);
+    storage.supplier.address1 = address1;
 });
 template.supplier.address2.addEventListener("keyup", function () {
-    localStorage.setItem('address2', template.supplier.address2.innerHTML);
+    let address2 = template.supplier.address2.innerHTML;
+    localStorage.setItem('address2', address2);
+    storage.supplier.address2 = address2;
 });
 template.supplier.ico.addEventListener("keyup", function () {
-    localStorage.setItem('ico', template.supplier.ico.innerHTML);
+    let ico = template.supplier.ico.innerHTML;
+    localStorage.setItem('ico', ico);
+    storage.supplier.ico = ico;
+});
+template.account.addEventListener("keyup", function () {
+    let account = template.account.innerHTML;
+    localStorage.setItem('account', account);
+    storage.account = account;
 });
 /*
 new QRCode(document.getElementById("qr"), "SPD*1.0*ACC:CZ2806000000000168540115*AM:450.00*CC:CZK*MSG:PLATBA ZA ZBOZI*X-VS:1234567890");

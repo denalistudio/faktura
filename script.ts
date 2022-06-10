@@ -12,7 +12,7 @@ const dom = {
 const template = {
   number: <HTMLElement>document.querySelectorAll("[data-invoice='number']")[0],
   heading: <HTMLElement>document.querySelectorAll("[data-invoice='heading']")[0],
-  bank: <HTMLElement>document.querySelectorAll("[data-invoice='bank']")[0],
+  account: <HTMLElement>document.querySelectorAll("[data-invoice='account']")[0],
   variable: <HTMLElement>document.querySelectorAll("[data-invoice='variable']")[0],
   type: <HTMLElement>document.querySelectorAll("[data-invoice='type']")[0],
   due: <HTMLElement>document.querySelectorAll("[data-invoice='due']")[0],
@@ -66,6 +66,7 @@ var storage = {
   number: "12345678",
   issue: "",
   due: "",
+  account: "1234567890/0000",
   supplier: {
     name: "DODAVATEL",
     address1: "ADRESA 1",
@@ -84,7 +85,8 @@ const local = {
     name: localStorage.getItem("name"),
     address1: localStorage.getItem("address1"),
     address2: localStorage.getItem("address2"),
-    ico: localStorage.getItem("ico")
+    ico: localStorage.getItem("ico"),
+    account: localStorage.getItem("account")
 }
 
 function init() {
@@ -112,7 +114,15 @@ function init() {
     storage.supplier.ico = local.ico;
   }
 
+  if (local.account === null) {}
+  else {
+    storage.account = local.account;
+  }
+
   // Set elements to contenteditable="true" and spellcheck="false"
+
+  template.account.setAttribute("contenteditable", "true");
+  template.account.setAttribute("spellcheck", "false");
 
   template.supplier.name.setAttribute("contenteditable", "true");
   template.supplier.name.setAttribute("spellcheck", "false");
@@ -217,19 +227,33 @@ function registr() {
 }
 
 template.supplier.name.addEventListener("keyup", function () {
-  localStorage.setItem('name', template.supplier.name.innerHTML);
+  let name = template.supplier.name.innerHTML;
+  localStorage.setItem('name', name);
+  storage.supplier.name = name;
 });
 
 template.supplier.address1.addEventListener("keyup", function () {
-  localStorage.setItem('address1', template.supplier.address1.innerHTML);
+  let address1 = template.supplier.address1.innerHTML;
+  localStorage.setItem('address1', address1);
+  storage.supplier.address1 = address1;
 });
 
 template.supplier.address2.addEventListener("keyup", function () {
-  localStorage.setItem('address2', template.supplier.address2.innerHTML);
+  let address2 = template.supplier.address2.innerHTML
+  localStorage.setItem('address2', address2);
+  storage.supplier.address2 = address2;
 });
 
 template.supplier.ico.addEventListener("keyup", function () {
-  localStorage.setItem('ico', template.supplier.ico.innerHTML);
+  let ico = template.supplier.ico.innerHTML
+  localStorage.setItem('ico', ico);
+  storage.supplier.ico = ico;
+});
+
+template.account.addEventListener("keyup", function () {
+  let account = template.account.innerHTML
+  localStorage.setItem('account', account);
+  storage.account = account;
 });
 
 /*
