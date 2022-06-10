@@ -10,9 +10,9 @@
 <body>
     <aside id="input">
         <h1>Faktura</h1>
-        <input data-input="number" class="number" id="aside-number" type="number" placeholder="#" title="Číslo faktury"
+        <input data-invoice="number" class="number" id="aside-number" type="number" placeholder="#" title="Číslo faktury"
             onkeyup="invoice.make('number')">
-        <input data-input="due" class="due" type="date" placeholder="Due date" oninput="invoice.make('due')">
+        <input data-invoice="due" class="due" type="date" placeholder="Due date" oninput="invoice.make('due')">
         <div class="switch">
             <input type="radio" id="payment-bank" name="payment" onclick="invoice.make('bank')" checked>
             <label for="payment-bank">Převodem</label>
@@ -26,6 +26,11 @@
         <input type="number" id="rejstrikoveico" placeholder="IČO">
         <button onclick="getData('11990074')">Prohledat rejstřík</button>
         <p class="subtitle">Tato funkce je momentálně ve vývoji a je možné, že se některé adresy nenačtou správně. <a onclick="registr()">Celý výpis najdete zde</a></p>
+        <br>
+        <p>QR Platba <span class="tag">Beta</span></p>
+        <input type="text" data-invoice="iban" placeholder="IBAN">
+        <button onclick="getData('11990074')">Prohledat rejstřík</button>
+        <p class="subtitle">Tato funkce je momentálně ve vývoji a je možné, že se některé adresy nenačtou správně. <a onclick="registr()">Celý výpis najdete zde</a></p>
         <details style="user-select: none;">
             <summary>More options</summary>
             <div class="switch">
@@ -37,7 +42,7 @@
                 <label for="currency-usd" contenteditable="true">?</label>
             </div>
             <input id="date1-input" placeholder="Date of issue" type="date"
-                oninput="invoice.make('issue')" data-input="issue">
+                oninput="invoice.make('issue')" data-invoice="issue">
             <input id="date2-input" placeholder="Tax date" type="date"
                 oninput="invoiceWrite('date2-variable', 'date2-input')">
                 <label for="date2-input">Datum zdanitelného plnění</label>

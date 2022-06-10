@@ -1,13 +1,6 @@
 "use strict";
 const date = new Date();
 var today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-const dom = {
-    input: {
-        number: document.querySelectorAll("[data-input='number']")[0],
-        due: document.querySelectorAll("#input > .due")[0],
-        issue: document.querySelector("[data-input='issue']")
-    }
-};
 const template = {
     number: document.querySelectorAll("[data-template='number']")[0],
     heading: document.querySelectorAll("[data-template='heading']")[0],
@@ -32,6 +25,12 @@ const template = {
 // TODO: Make better date formats
 // TODO: Convert this shit to event listeners
 var invoice = {
+    settings: {
+        number: document.querySelector("[data-invoice='number']"),
+        due: document.querySelector("[data-invoice='due']"),
+        issue: document.querySelector("[data-invoice='issue']"),
+        iban: document.querySelector("[data-invoice='iban']")
+    },
     store: {
         number: "12345678",
         issue: "",
@@ -53,13 +52,13 @@ var invoice = {
     make: (what) => {
         switch (what) {
             case "number":
-                invoice.store.number = ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getFullYear()).slice(-2) + ("0000" + dom.input.number.value).slice(-4);
+                invoice.store.number = ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getFullYear()).slice(-2) + ("0000" + invoice.settings.number.value).slice(-4);
                 break;
             case "due":
-                invoice.store.due = dom.input.due.value;
+                invoice.store.due = invoice.settings.due.value;
                 break;
             case "issue":
-                invoice.store.issue = dom.input.issue.value;
+                invoice.store.issue = invoice.settings.issue.value;
             case "bank":
                 document.querySelectorAll(".bank").forEach(el => {
                     el.style.display = "block";
