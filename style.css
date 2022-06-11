@@ -49,19 +49,15 @@ main { width: 80%; padding: 4em 0; }
 
 .row { width: 100%; display: inline-block; margin: 0.5rem 0; font-size: 0; }
 
-.col { width: 50%; display: table; vertical-align: top; }
+.col { width: 50%; display: inline-block; vertical-align: top; }
 
-.col-2 { width: 100%; }
+.col p { font-size: 12pt; }
 
-.col, .col-2 { display: inline-block; }
+.col h1 { font-size: 24pt; }
 
-.col p, .col-2 p { font-size: 12pt; }
+.col h2 { font-size: 18pt; }
 
-.col h1, .col-2 h1 { font-size: 24pt; }
-
-.col h2, .col-2 h2 { font-size: 18pt; }
-
-.col h3, .col-2 h3 { font-size: 14pt; }
+.col h3 { font-size: 14pt; }
 
 [data-invoice="number"] { width: 50px; height: 35px; padding: 10px; margin: 25px; text-align: center; -webkit-appearance: none; margin: 0; -moz-appearance: textfield; }
 
