@@ -147,6 +147,13 @@ main {
   box-sizing: content-box;
   background-color: $white;
   box-shadow: $outline;
+
+  header {
+    gap: 1em;
+    width: 70%;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 #qr {
@@ -195,27 +202,6 @@ main {
   h3 {
     font-size: 14pt;
   }
-}
-
-.column {
-  float: left;
-  width: 50%;
-}
-
-/*.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}*/
-
-.column70 {
-  float: left;
-  width: 70%;
-}
-
-.column30 {
-  float: left;
-  width: 30%;
 }
 
 [data-invoice="number"] {
