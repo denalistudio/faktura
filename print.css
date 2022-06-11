@@ -1,7 +1,9 @@
 * { visibility: hidden; }
 
-#invoice, #invoice * { visibility: visible; }
+#invoice, #invoice *, .line { visibility: visible; }
 
 #invoice { position: absolute; top: 0; left: 0; padding: 0; box-shadow: none; }
+
+.line { -webkit-print-color-adjust: exact; }
 
 @page { margin: 2.5cm; }

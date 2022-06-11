@@ -3,7 +3,8 @@
 }
 
 #invoice,
-#invoice * {
+#invoice *,
+.line {
     visibility: visible;
 }
 
@@ -13,6 +14,10 @@
     left: 0;
     padding: 0;
     box-shadow: none;
+}
+
+.line {
+    -webkit-print-color-adjust: exact;
 }
 
 @page {
