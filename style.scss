@@ -158,6 +158,7 @@ main {
   height: 1mm;
   margin: 10pt 0;
   background-color: #000;
+  -webkit-print-color-adjust: exact;
 }
 
 .row {
