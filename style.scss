@@ -156,15 +156,15 @@ main {
   }
 }
 
-#qr {
-  display: flex;
-  justify-content: flex-end;
+#payment {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 110pt;
+}
 
-  img {
+#qr img {
     width: 110pt;
-    flex-basis: 110pt;
     aspect-ratio: 1;
-  }
 }
 
 .line {

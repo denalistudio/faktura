@@ -41,9 +41,9 @@ main { width: 80%; padding: 4em 0; }
 
 #invoice header { gap: 1em; width: 70%; display: inline-flex; align-items: center; }
 
-#qr { display: flex; justify-content: flex-end; }
+#payment { display: grid; grid-template-rows: auto; grid-template-columns: auto 110pt; }
 
-#qr img { width: 110pt; flex-basis: 110pt; aspect-ratio: 1; }
+#qr img { width: 110pt; aspect-ratio: 1; }
 
 .line { width: 100%; height: 0.1em; background-color: #000; }
 
