@@ -157,8 +157,13 @@ main {
 }
 
 #qr {
+  display: flex;
+  justify-content: flex-end;
+
   img {
-    width: 150px;
+    width: 110pt;
+    flex-basis: 110pt;
+    aspect-ratio: 1;
   }
 }
 
