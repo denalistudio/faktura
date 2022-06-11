@@ -138,45 +138,32 @@ main {
 }
 
 #invoice {
-  width: 60%;
+  width: 210mm;
+  height: 297mm;
   margin: auto;
-  padding: 11.9% 8.4%;
-  aspect-ratio: 21 / 29.7;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  padding: 2.5cm;
   background-color: $white;
   box-shadow: $outline;
 
   header {
-    gap: 1em;
+    gap: 10pt;
     width: 70%;
     display: inline-flex;
     align-items: center;
   }
 }
 
-#payment {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: auto 110pt;
-}
-
-#qr img {
-    width: 110pt;
-    aspect-ratio: 1;
-}
-
 .line {
   width: 100%;
-  height: 0.1em;
+  height: 1mm;
+  margin: 10pt 0;
   background-color: #000;
 }
 
 .row {
   width: 100%;
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: 5pt 0;
   font-size: 0;
 }
 
@@ -200,6 +187,17 @@ main {
   h3 {
     font-size: 14pt;
   }
+}
+
+#payment {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 110pt;
+}
+
+#qr img {
+    width: 110pt;
+    aspect-ratio: 1;
 }
 
 [data-invoice="number"] {
