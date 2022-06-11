@@ -47,7 +47,7 @@ main { width: 80%; padding: 4em 0; }
 
 .row { width: 100%; display: inline-block; margin: 0.5rem 0; font-size: 0; }
 
-.col { width: 50%; }
+.col { width: 50%; display: table; vertical-align: top; }
 
 .col-2 { width: 100%; }
 

@@ -177,6 +177,8 @@ main {
 
 .col {
   width: 50%;
+  display: table;
+  vertical-align: top;
 }
 
 .col-2 {
