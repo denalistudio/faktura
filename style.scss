@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-$white: #ffffff;
+$white: #fff;
 $gray: #fafafa;
 $border-radius: 5px;
 $outline: 0 0 0 1px #808080;
@@ -16,16 +16,30 @@ $grey-hover: #646464;
   padding: 0;
   box-sizing: border-box;
 
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+
   &:focus {
     outline: none;
     border-radius: 5px;
   }
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: $gray;
 }
+
+@page {
+  margin: 2.5cm;
+}
+
+// Main
 
 main {
   width: 80%;
@@ -36,28 +50,34 @@ main {
   width: 21cm;
   min-height: 29.7cm;
   margin: auto;
-  padding: 20px;
+  padding: 2.5cm;
   background-color: $white;
   box-shadow: $outline;
 
-  td {
-    width: 50%;
-    padding: 0.25em 0;
-    vertical-align: top;
+  p {
+    font-size: 12pt;
+  }
 
-    p {
-      margin: 0.5em 0;
+  h1 {
+    font-size: 24pt;
+  }
 
-      &:first-child {
-        margin-top: 0;
-      }
+  h2 {
+    font-size: 18pt;
+  }
 
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+  h3 {
+    font-size: 14pt;
   }
 }
+
+#qr {
+  img {
+    width: 150px;
+  }
+}
+
+// Sidebar
 
 aside {
   width: 20%;
@@ -131,7 +151,7 @@ button {
     }
   }
 
-  input:checked + label {
+  input:checked+label {
     background-color: #77b377;
     color: white;
 
@@ -160,24 +180,13 @@ button {
   }
 
   #invoice {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
+    padding: 0;
     box-shadow: none;
-    display: block;
   }
-}
-
-#inline {
-  width: 100%;
-}
-
-.nobottom {
-  margin-bottom: 0;
-}
-
-.notop {
-  margin-top: 0;
 }
 
 .line {
@@ -186,23 +195,6 @@ button {
   background-color: black;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.w50 {
-  width: 50%;
-}
-
-.w33 {
-  width: 33%;
-}
-
-.w7 {
-  width: 7%;
-}
-
-.inline100 {
-  display: inline-flex;
-  width: 100%;
 }
 
 .column {
@@ -250,6 +242,8 @@ button {
   -moz-appearance: textfield;
 }
 
+// Help
+
 #help {
   height: 50px;
   width: 50px;
@@ -282,10 +276,12 @@ button {
   font-size: 12px;
   color: $grey;
   margin-top: 5px;
+
   a {
     color: inherit;
     text-decoration: underline;
     cursor: pointer;
+
     &:hover {
       color: $grey-hover;
     }
@@ -296,10 +292,4 @@ input[type="number"] {
   -webkit-appearance: none;
   margin: 0;
   -moz-appearance: textfield;
-}
-
-#qr {
-  img {
-    width: 150px;
-  }
 }
