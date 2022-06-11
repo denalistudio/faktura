@@ -14,9 +14,14 @@ $grey-hover: #646464;
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 
-  &::before, &::after {
+  &::before,
+  &::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
 
@@ -42,14 +47,14 @@ aside {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 25px;
+  padding: 1.5em;
   background-color: $white;
   box-shadow: $outline;
 }
 
 input {
-  height: 25px;
-  margin: 5px;
+  height: 1.5em;
+  margin: 0.3em;
   border: none;
   border-radius: $border-radius;
   box-shadow: $outline;
@@ -58,14 +63,14 @@ input {
 }
 
 button {
-  padding: 5px 15px;
+  padding: 0.3em 1em;
   width: 100%;
   color: $white;
   background-color: #77b377;
-  border-radius: 5px;
+  border-radius: 0.3em;
   border: none;
-  font-size: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 0.875em;
+  border: 1px solid #00000033;
 
   &:hover {
     background-color: #5f9f5f;
@@ -74,28 +79,28 @@ button {
 
 .switch {
   display: flex;
-  margin-bottom: 36px;
+  margin-bottom: 2.25em;
   overflow: hidden;
 
   input {
     position: absolute !important;
     clip: rect(0, 0, 0, 0);
-    height: 1px;
-    width: 1px;
+    height: 0.0625em;
+    width: 0.0625em;
     border: 0;
     overflow: hidden;
   }
 
   label {
     background-color: #e4e4e4;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 14px;
+    color: #00000099;
+    font-size: 0.875em;
     font-family: "Roboto", sans-serif;
     line-height: 1;
     text-align: center;
     padding: 5px 15px;
     margin-right: -1px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid #00000033;
     transition: all 0.1s ease-in-out;
     width: 100%;
 
@@ -133,12 +138,47 @@ main {
 }
 
 #invoice {
-  width: 21cm;
-  min-height: 29.7cm;
+  width: 60%;
   margin: auto;
-  padding: 2.5cm;
+  padding: 11.9% 8.4%;
+  aspect-ratio: 21 / 29.7;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   background-color: $white;
   box-shadow: $outline;
+}
+
+#qr {
+  img {
+    width: 150px;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 1pt;
+  background-color: #000;
+}
+
+.row {
+  width: 100%;
+  display: inline-block;
+  margin: 0.5rem 0;
+  font-size: 0;
+}
+
+.col {
+  width: 50%;
+}
+
+.col-2 {
+  width: 100%;
+}
+
+.col,
+.col-2 {
+  display: inline-block;
 
   p {
     font-size: 12pt;
@@ -157,30 +197,16 @@ main {
   }
 }
 
-#qr {
-  img {
-    width: 150px;
-  }
-}
-
-.line {
-  width: 100%;
-  height: 1px;
-  background-color: black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .column {
   float: left;
   width: 50%;
 }
 
-.row:after {
+/*.row:after {
   content: "";
   display: table;
   clear: both;
-}
+}*/
 
 .column70 {
   float: left;
@@ -265,29 +291,4 @@ input[type="number"] {
   -webkit-appearance: none;
   margin: 0;
   -moz-appearance: textfield;
-}
-
-// Media rules
-@media print {
-  html * {
-    visibility: hidden;
-  }
-
-  #invoice,
-  #invoice * {
-    visibility: visible;
-  }
-
-  #invoice {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-    box-shadow: none;
-  }
-}
-
-@page {
-  margin: 2.5cm;
 }

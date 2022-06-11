@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Faktura</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
 
 <body>
@@ -63,42 +64,62 @@
             </div>
             <div class="line"></div>
             <div class="row">
-                <div class="column">
+                <div class="col">
                     <p>Dodavatel</p>
                     <h2 contenteditable="true" data-template="supplier-name"></h2>
+                </div>
+                <div class="col">
+                    <p>Odběratel</p>
+                    <h2 data-template="buyer-name">ODBĚRATEL</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
                     <h3>Adresa</h3>
                     <p data-template="supplier-address1"></p>
                     <p data-template="supplier-address2"></p>
-                    <h3>IČO</h3>
-                    <p data-template="supplier-ico"></p>
                 </div>
-                <div class="column">
-                    <p>Odběratel</p>
-                    <h2 data-template="buyer-name">ODBĚRATEL</h2>
+                <div class="col">
                     <h3>Adresa</h3>
                     <p data-template="buyer-address1">ADRESA 1</p>
                     <p data-template="buyer-address2">ADRESA 2</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>IČO</h3>
+                    <p data-template="supplier-ico"></p>
+                </div>
+                <div class="col">
                     <h3>IČO</h3>
                     <p data-template="buyer-ico">12345678</p>
                 </div>
             </div>
             <div class="line"></div>
             <div class="row">
-                <div class="column">
+                <div class="col">
                     <p class="bank">Bankovní účet</p>
                     <h3 data-template="account" class="bank">1234567890/0000</h3>
+                </div>
+                <div class="col">
+                    <p class="bank">Variabilní symbol</p>
+                    <h3 data-template="variable" class="bank">VARIABILNÍ SYMBOL</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
                     <p>Způsob platby</p>
                     <h3 data-template="type">bankovním převodem</h3>
-                    <p>Datum vystavení</p>
-                    <h3 data-template="issue">DATUM VYSTAVENÍ</h3>
                 </div>
-                <div class="column">
-                    <div>
-                        <p class="bank">Variabilní symbol</p>
-                        <h3 data-template="variable" class="bank">VARIABILNÍ SYMBOL</h3>
-                    </div>
+                <div class="col">
                     <p>Datum splatnosti</p>
                     <h3 data-template="due">DATUM SPLATNOSTI</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Datum vystavení</p>
+                    <h3 data-template="issue">DATUM VYSTAVENÍ</h3>
                 </div>
             </div>
             <div class="line"></div>
@@ -116,7 +137,7 @@
             <p>Částka k úhradě</p>
             <h2 data-template="price" contenteditable="true">CENA K ÚHRADĚ</h2>
             <div id="qr">
-        </div>
+            </div>
     </main>
     <a href="mailto:klapka@studiodenali.cz" title="Potřebujete poradit?">
         <div id="help">?</div>

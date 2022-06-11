@@ -9,19 +9,19 @@ html { font-size: 100%; }
 
 body { font-family: "Roboto", sans-serif; background-color: #fafafa; }
 
-aside { width: 20%; height: 100vh; position: fixed; top: 0; right: 0; padding: 25px; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
+aside { width: 20%; height: 100vh; position: fixed; top: 0; right: 0; padding: 1.5em; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
 
-input { height: 25px; margin: 5px; border: none; border-radius: 5px; box-shadow: 0 0 0 1px #808080; background-color: #fff; font-family: "Roboto", sans-serif; }
+input { height: 1.5em; margin: 0.3em; border: none; border-radius: 5px; box-shadow: 0 0 0 1px #808080; background-color: #fff; font-family: "Roboto", sans-serif; }
 
-button { padding: 5px 15px; width: 100%; color: #fff; background-color: #77b377; border-radius: 5px; border: none; font-size: 14px; border: 1px solid rgba(0, 0, 0, 0.2); }
+button { padding: 0.3em 1em; width: 100%; color: #fff; background-color: #77b377; border-radius: 0.3em; border: none; font-size: 0.875em; border: 1px solid #00000033; }
 
 button:hover { background-color: #5f9f5f; }
 
-.switch { display: flex; margin-bottom: 36px; overflow: hidden; }
+.switch { display: flex; margin-bottom: 2.25em; overflow: hidden; }
 
-.switch input { position: absolute !important; clip: rect(0, 0, 0, 0); height: 1px; width: 1px; border: 0; overflow: hidden; }
+.switch input { position: absolute !important; clip: rect(0, 0, 0, 0); height: 0.0625em; width: 0.0625em; border: 0; overflow: hidden; }
 
-.switch label { background-color: #e4e4e4; color: rgba(0, 0, 0, 0.6); font-size: 14px; font-family: "Roboto", sans-serif; line-height: 1; text-align: center; padding: 5px 15px; margin-right: -1px; border: 1px solid rgba(0, 0, 0, 0.2); transition: all 0.1s ease-in-out; width: 100%; }
+.switch label { background-color: #e4e4e4; color: #00000099; font-size: 0.875em; font-family: "Roboto", sans-serif; line-height: 1; text-align: center; padding: 5px 15px; margin-right: -1px; border: 1px solid #00000033; transition: all 0.1s ease-in-out; width: 100%; }
 
 .switch label:hover { cursor: pointer; }
 
@@ -37,24 +37,35 @@ button:hover { background-color: #5f9f5f; }
 
 main { width: 80%; padding: 4em 0; }
 
-#invoice { width: 21cm; min-height: 29.7cm; margin: auto; padding: 2.5cm; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
-
-#invoice p { font-size: 12pt; }
-
-#invoice h1 { font-size: 24pt; }
-
-#invoice h2 { font-size: 18pt; }
-
-#invoice h3 { font-size: 14pt; }
+#invoice { width: 60%; margin: auto; padding: 11.9% 8.4%; aspect-ratio: 21 / 29.7; box-sizing: content-box; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
 
 #qr img { width: 150px; }
 
-.line { width: 100%; height: 1px; background-color: black; margin-top: 20px; margin-bottom: 20px; }
+.line { width: 100%; height: 1pt; background-color: #000; }
+
+.row { width: 100%; display: inline-block; margin: 0.5rem 0; font-size: 0; }
+
+.col { width: 50%; }
+
+.col-2 { width: 100%; }
+
+.col, .col-2 { display: inline-block; }
+
+.col p, .col-2 p { font-size: 12pt; }
+
+.col h1, .col-2 h1 { font-size: 24pt; }
+
+.col h2, .col-2 h2 { font-size: 18pt; }
+
+.col h3, .col-2 h3 { font-size: 14pt; }
 
 .column { float: left; width: 50%; }
 
-.row:after { content: ""; display: table; clear: both; }
-
+/*.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}*/
 .column70 { float: left; width: 70%; }
 
 .column30 { float: left; width: 30%; }
@@ -74,9 +85,3 @@ main { width: 80%; padding: 4em 0; }
 .subtitle a:hover { color: #646464; }
 
 input[type="number"] { -webkit-appearance: none; margin: 0; -moz-appearance: textfield; }
-
-@media print { html * { visibility: hidden; }
-  #invoice, #invoice * { visibility: visible; }
-  #invoice { display: block; position: absolute; top: 0; left: 0; padding: 0; box-shadow: none; } }
-
-@page { margin: 2.5cm; }
