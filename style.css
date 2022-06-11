@@ -9,22 +9,6 @@ html { font-size: 100%; }
 
 body { font-family: "Roboto", sans-serif; background-color: #fafafa; }
 
-@page { margin: 2.5cm; }
-
-main { width: 80%; padding: 4em 0; }
-
-#invoice { width: 21cm; min-height: 29.7cm; margin: auto; padding: 2.5cm; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
-
-#invoice p { font-size: 12pt; }
-
-#invoice h1 { font-size: 24pt; }
-
-#invoice h2 { font-size: 18pt; }
-
-#invoice h3 { font-size: 14pt; }
-
-#qr img { width: 150px; }
-
 aside { width: 20%; height: 100vh; position: fixed; top: 0; right: 0; padding: 25px; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
 
 input { height: 25px; margin: 5px; border: none; border-radius: 5px; box-shadow: 0 0 0 1px #808080; background-color: #fff; font-family: "Roboto", sans-serif; }
@@ -51,9 +35,19 @@ button:hover { background-color: #5f9f5f; }
 
 .switch label:last-of-type { border-radius: 0 4px 4px 0; }
 
-@media print { html * { visibility: hidden; }
-  #invoice, #invoice * { visibility: visible; }
-  #invoice { display: block; position: absolute; top: 0; left: 0; padding: 0; box-shadow: none; } }
+main { width: 80%; padding: 4em 0; }
+
+#invoice { width: 21cm; min-height: 29.7cm; margin: auto; padding: 2.5cm; background-color: #fff; box-shadow: 0 0 0 1px #808080; }
+
+#invoice p { font-size: 12pt; }
+
+#invoice h1 { font-size: 24pt; }
+
+#invoice h2 { font-size: 18pt; }
+
+#invoice h3 { font-size: 14pt; }
+
+#qr img { width: 150px; }
 
 .line { width: 100%; height: 1px; background-color: black; margin-top: 20px; margin-bottom: 20px; }
 
@@ -80,3 +74,9 @@ button:hover { background-color: #5f9f5f; }
 .subtitle a:hover { color: #646464; }
 
 input[type="number"] { -webkit-appearance: none; margin: 0; -moz-appearance: textfield; }
+
+@media print { html * { visibility: hidden; }
+  #invoice, #invoice * { visibility: visible; }
+  #invoice { display: block; position: absolute; top: 0; left: 0; padding: 0; box-shadow: none; } }
+
+@page { margin: 2.5cm; }

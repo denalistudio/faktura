@@ -35,50 +35,7 @@ body {
   background-color: $gray;
 }
 
-@page {
-  margin: 2.5cm;
-}
-
-// Main
-
-main {
-  width: 80%;
-  padding: 4em 0;
-}
-
-#invoice {
-  width: 21cm;
-  min-height: 29.7cm;
-  margin: auto;
-  padding: 2.5cm;
-  background-color: $white;
-  box-shadow: $outline;
-
-  p {
-    font-size: 12pt;
-  }
-
-  h1 {
-    font-size: 24pt;
-  }
-
-  h2 {
-    font-size: 18pt;
-  }
-
-  h3 {
-    font-size: 14pt;
-  }
-}
-
-#qr {
-  img {
-    width: 150px;
-  }
-}
-
 // Sidebar
-
 aside {
   width: 20%;
   height: 100vh;
@@ -169,23 +126,40 @@ button {
   }
 }
 
-@media print {
-  html * {
-    visibility: hidden;
+// Invoice
+main {
+  width: 80%;
+  padding: 4em 0;
+}
+
+#invoice {
+  width: 21cm;
+  min-height: 29.7cm;
+  margin: auto;
+  padding: 2.5cm;
+  background-color: $white;
+  box-shadow: $outline;
+
+  p {
+    font-size: 12pt;
   }
 
-  #invoice,
-  #invoice * {
-    visibility: visible;
+  h1 {
+    font-size: 24pt;
   }
 
-  #invoice {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-    box-shadow: none;
+  h2 {
+    font-size: 18pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+  }
+}
+
+#qr {
+  img {
+    width: 150px;
   }
 }
 
@@ -243,7 +217,6 @@ button {
 }
 
 // Help
-
 #help {
   height: 50px;
   width: 50px;
@@ -292,4 +265,29 @@ input[type="number"] {
   -webkit-appearance: none;
   margin: 0;
   -moz-appearance: textfield;
+}
+
+// Media rules
+@media print {
+  html * {
+    visibility: hidden;
+  }
+
+  #invoice,
+  #invoice * {
+    visibility: visible;
+  }
+
+  #invoice {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+@page {
+  margin: 2.5cm;
 }
