@@ -2,6 +2,6 @@
 
 #invoice, #invoice * { visibility: visible; }
 
-#invoice { display: block; position: absolute; top: 0; left: 0; padding: 0; box-shadow: none; }
+#invoice { width: 210mm; height: 297mm; display: block; position: absolute; top: 0; left: 0; padding: 0; box-sizing: border-box; box-shadow: none; }
 
 @page { margin: 2.5cm; }
