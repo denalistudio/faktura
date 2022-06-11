@@ -169,7 +169,7 @@ function refreshLabels() {
   template.buyer.ico.innerHTML = invoice.store.buyer.ico;
   //FIXME: This qr system is just disgusting
   document.getElementById("qr").innerHTML = "";
-  var qr = "SPD*1.0*ACC:" + invoice.store.iban + "*AM:" + "10000" + "*CC:" + "CZK" + "*X-VS:" + invoice.store.number;
+  var qr = "SPD*1.0*ACC:" + invoice.store.iban + "*AM:" + "10000" + "*CC:" + "CZK" + "*MSG:Platba za sluzby" + "*X-VS:" + invoice.store.number;
   new QRCode(document.getElementById("qr"), qr);
 }
 

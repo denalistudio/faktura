@@ -1,9 +1,26 @@
-* { visibility: hidden; }
+* {
+  visibility: hidden;
+}
 
-#invoice, #invoice *, .line { visibility: visible; }
+#invoice,
+#invoice *,
+.line {
+  visibility: visible;
+}
 
-#invoice { position: absolute; top: 0; left: 0; padding: 0; box-shadow: none; }
+#invoice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 
-.line { -webkit-print-color-adjust: exact; }
+.line {
+  -webkit-print-color-adjust: exact;
+}
 
-@page { margin: 2.5cm; }
+@page {
+  margin: 2.5cm;
+}
