@@ -1,3 +1,8 @@
+import { jsPDF } from "jspdf";
+
+// Default export is a4 paper, portrait, using millimeters for units
+const doc = new jsPDF();
+
 const date = new Date();
 var today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
